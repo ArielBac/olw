@@ -35,11 +35,9 @@ require __DIR__ . '/auth.php';
 Route::group([
     'prefix' => 'beers',
     'middleware' => 'auth',
-], function() {
+], function () {
     Route::get('/', [BeerController::class, 'index']);
     Route::get('/export', [BeerController::class, 'export']);
     Route::resource('reports', ExportController::class)
-    ->only(['index', 'destroy']);
+        ->only(['index', 'destroy']);
 });
-
-

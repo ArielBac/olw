@@ -12,7 +12,8 @@ class BeerController extends Controller
 {
     public function index(BeerRequest $request, PunkapiService $service)
     {
-        return $service->getBeers(...$request->validated());
+        // Os ... (spread operator) é usado para passar os parâmetros do request para o método, ele associa o nome do parâmetro com o valor
+        return $service->getBeers(...$request->validated()); // validated() passa apenas os parâmetros validados pelo FormRequest
     }
 
     public function export(BeerRequest $request, PunkapiService $service)
